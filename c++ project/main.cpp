@@ -6,12 +6,11 @@
 //  Copyright © 2020 蔡浩浩. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#include "iostream"
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
-    }
+    // insert code here...
+    cout << "Hello, World!\n";
     return 0;
 }
