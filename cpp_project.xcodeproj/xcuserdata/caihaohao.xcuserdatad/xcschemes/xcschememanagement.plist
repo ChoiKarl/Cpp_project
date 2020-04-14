@@ -7,27 +7,42 @@
 		<key>extern_C.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>内联函数.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
 		<key>函数重载.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<key>函数默认参数.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
+		</dict>
+		<key>给表达式赋值.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>输入输出.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>7214117A2444D2430007D97A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7214118A244624280007D97A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

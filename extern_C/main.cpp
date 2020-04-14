@@ -39,11 +39,11 @@ extern "C" {
 
 
 // 例子4: 可以直接用extern "C" 包含c的头文件,这样整个头文件的函数都能直接在c++中使用
- extern "C" {
+extern "C" {
     #include "math.h"
  }
 // 也可以用extern "C"指到部分c语言的函数.
- extern "C" {
+extern "C" {
     int sum(int, int);
     void test();
  }
