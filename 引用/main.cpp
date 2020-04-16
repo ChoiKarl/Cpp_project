@@ -9,6 +9,56 @@
 #include <iostream>
 using namespace std;
 
+// 引用的本质还是指针,是被编译器弱化了的指针.
+// 引用只能赋值变量(基本数据类型,枚举,结构体,类,指针,数组等都可以)
+// 一旦被赋值后不能在改变去引用其他变量.
+// 引用相当于变量的别名,可以用引用去操作变量.
+// 一个变量可以赋值多个引用.
+// 引用对比指针要更加安全.
+
+struct Test1 {
+    int *number;
+};
+
+struct Test2 {
+    int &number;
+};
+
+
+int main(int argc, const char * argv[]) {
+    
+    // 引用和指针占用的内存大小是一样的.
+    cout << sizeof(Test1) << endl;
+    cout << sizeof(Test2) << endl;
+    
+    // 通过汇编可以看出引用和指针是一样的.
+    int age = 10;
+    /* 指针的汇编
+     0x1000010e4 <+20>: movl   $0xa, -0x14(%rbp)
+     0x1000010eb <+27>: leaq   -0x14(%rbp), %rcx
+     0x1000010ef <+31>: movq   %rcx, -0x20(%rbp)
+     0x1000010f3 <+35>: movq   -0x20(%rbp), %rcx
+     0x1000010f7 <+39>: movl   (%rcx), %edx
+     0x1000010f9 <+41>: addl   $0x1, %edx
+     
+     int *ptr = &age;
+     (*ptr) += 1;
+     */
+    
+    /* 引用的汇编
+     0x1000010e4 <+20>: movl   $0xa, -0x14(%rbp)
+     0x1000010eb <+27>: leaq   -0x14(%rbp), %rcx
+     0x1000010ef <+31>: movq   %rcx, -0x20(%rbp)
+     0x1000010f3 <+35>: movq   -0x20(%rbp), %rcx
+     0x1000010f7 <+39>: movl   (%rcx), %edx
+     0x1000010f9 <+41>: addl   $0x1, %edx
+     */
+    int &ref = age;
+    ref += 1;
+    
+    return 0;
+}
+
 void p_swap(int &a, int &b) {
     int tmp = b;
     b = a;
@@ -16,15 +66,9 @@ void p_swap(int &a, int &b) {
 }
 
 
-int main(int argc, const char * argv[]) {
-    
+void test() {
     int age = 10;
     
-    // 引用只能赋值变量(基本数据类型,枚举,结构体,类,指针,数组等都可以)
-    // 一旦被赋值后不能在改变去引用其他变量.
-    // 引用相当于变量的别名,可以用引用去操作变量.
-    // 一个变量可以赋值多个引用.
-    // 引用对比指针要更加安全.
     int &ref = age;
     int &ref2 = age;
     int &ref3 = age;
@@ -44,6 +88,4 @@ int main(int argc, const char * argv[]) {
     int num2 = 2;
     p_swap(num1, num2);
     cout << "num1:" <<num1 << "num2:" << num2 << endl;
-    
-    return 0;
 }
