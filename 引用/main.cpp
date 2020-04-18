@@ -27,6 +27,49 @@ struct Test2 {
 
 int main(int argc, const char * argv[]) {
     
+    
+    
+    return 0;
+}
+
+// 数组指针和指针数组
+void arrayPointerAndPointerArray() {
+    
+    // 数组指针,array2是一个指向int[]数组的指针.
+    int (*array2)[] = {};
+    
+    // 指针数组,存放int* 类型的数组
+    int *array1[] = {};
+}
+
+void arrayUsrRef() {
+    int array[] = {1,2,3};
+    // 数组类型的引用
+    int (&refArr)[3] = array;
+    cout << refArr[2] << endl;
+}
+
+// 指针的引用
+void pointerUseRef() {
+    int a = 10;
+    int *p = &a;
+    
+    // 指针的引用,&左边是什么,引用的类型就是什么.
+    int *&ref = p;
+    
+    // ref就是p,就是给p起的别名, *ref就相当于*p,
+    *ref = 120;
+    cout << a << endl;
+    
+    int b = 20;
+    // 相当于给p换了一个指向,等于 p = &b
+    ref = &b;
+    
+    cout << b << endl;
+}
+
+// 比较引用和指针
+void compareCefAndPointer() {
     // 引用和指针占用的内存大小是一样的.
     cout << sizeof(Test1) << endl;
     cout << sizeof(Test2) << endl;
@@ -55,16 +98,14 @@ int main(int argc, const char * argv[]) {
      */
     int &ref = age;
     ref += 1;
-    
-    return 0;
 }
 
+// =====================
 void p_swap(int &a, int &b) {
     int tmp = b;
     b = a;
     a = tmp;
 }
-
 
 void test() {
     int age = 10;

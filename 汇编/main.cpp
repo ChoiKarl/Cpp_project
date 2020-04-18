@@ -9,13 +9,33 @@
 #include <iostream>
 using namespace std;
 
-void test() {
-    
-}
-
 
 int main(int argc, const char * argv[]) {
 
+    
+}
+
+void pointerTest() {
+    /*
+     // 10赋值给-0x14(%rbp), 也就是赋值给a
+     0x100000e8f <+15>: movl   $0xa, -0x14(%rbp)
+     // 将a的地址值给rax
+     0x100000e96 <+22>: leaq   -0x14(%rbp), %rax
+     // 将rax(也就是a的地址值)赋值给-0x20(%rbp),-0x20(%rbp)其实就是指针变量p
+     0x100000e9a <+26>: movq   %rax, -0x20(%rbp)
+     // 将-0x20(%rbp)赋值给rax,这个时候rax存储的就是指针变量p
+     0x100000e9e <+30>: movq   -0x20(%rbp), %rax
+     // 将20赋值给rax的地址里,因为rax这个时候是指针变量p,指针变量p又是指向a的地址的,所有相当于把20放进到了a对应的地址了,相当于修改了a的值.
+     0x100000ea2 <+34>: movl   $0x14, (%rax)
+     */
+    int a = 10;
+    int *p = &a;
+    *p = 20;
+}
+
+// jump test
+void test() {}
+void jump() {
     /*
      jmp 0x000000000
      * 跳转到某个内存地址执行代码
