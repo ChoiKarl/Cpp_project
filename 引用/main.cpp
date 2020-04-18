@@ -25,9 +25,24 @@ struct Test2 {
 };
 
 
+void t2(int a, int b) {
+    int t1 = 10;
+    int t2 = 20;
+    int t3 = 30;
+    cout << "t1:" << &t1 << "  t2:" << &t2 << "  t2:" << &t3 << endl;
+}
+
+
+void t() {
+    int t = 10;
+    cout << &t << endl;
+    t2(1, 2);
+}
+
+
 int main(int argc, const char * argv[]) {
     
-    
+    t();
     
     return 0;
 }
