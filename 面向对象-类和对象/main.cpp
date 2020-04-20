@@ -102,6 +102,7 @@ int main(int argc, const char * argv[]) {
     per -> age = 10;
     per -> id = 6;
     per -> height = 20;
-    
     per -> test();
+    
+    delete per;
 }
