@@ -25,11 +25,30 @@ public:
     }
 };
 
+class Person {
+public:
+    int age = 0;
+    Car *car;
+    void run() {
+        
+    }
+    
+    // 在析构函数里释放申请的内存
+    ~Person() {
+        delete car;
+    }
+};
+
+
+
 Car g_car;
 int main(int argc, const char * argv[]) {
     
     Car *car = new Car();
-    delete car;
+    
+    Person *person = new Person();
+    person->car = car;
+    delete person;
     
     getchar();
     return 0;
