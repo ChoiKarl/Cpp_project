@@ -10,7 +10,7 @@
 #define Car_hpp
 
 #include <stdio.h>
-// C++类的函数申明与实现分开写
+// C++类的函数声明与实现分开写
 class Car {
 public:
     
