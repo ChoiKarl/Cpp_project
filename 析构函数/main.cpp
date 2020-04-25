@@ -11,7 +11,7 @@ using namespace std;
 
 // 1: 析构函数在对象内存即将被回收的时候调用.
 // 2: 析构函数有且只能有一个,不能重载
-// 3: 和构造函数一样,析构函数必须是public的.
+// 3: 如果外部需要手动delete,那么析构函数就必须是public的
 
 class Car {
 public:
