@@ -64,6 +64,11 @@
 			<key>orderHint</key>
 			<integer>22</integer>
 		</dict>
+		<key>引用成员函数.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
 		<key>抽象类和纯虚函数.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
