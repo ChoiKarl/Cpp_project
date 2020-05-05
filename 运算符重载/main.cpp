@@ -18,49 +18,70 @@ public:
     void log() {
         cout << "(" << x << "," << y << ")" << endl;
     }
+    
+    
+    const Point operator+(const Point &r) const {
+        return Point(x + r.x, y + r.y);
+    }
+
+    const Point operator-(const Point &r) const {
+        return Point(x - r.x, y - r.y);
+    }
+
+    Point& operator+=(const Point &r) {
+        x += r.x;
+        y += r.y;
+        return *this;
+    }
+
+    Point& operator-=(const Point &r) {
+        x -= r.x;
+        y -= r.y;
+        return *this;
+    }
+
+    bool operator<(const Point &r) const {
+        return x < r.x && y < r.y;
+    }
+
+    bool operator>(const Point &r) const {
+        return x > r.x && y > r.y;
+    }
+
+    bool operator==(const Point &r) const {
+        return x == r.x && y == r.y;
+    }
+
+    bool operator<=(const Point &r) const {
+        return *this < r || *this == r;
+    }
+
+    bool operator>=(const Point &r) const {
+        return *this > r || *this == r;
+    }
+
+    const Point operator-() const {
+        return Point(-x, -y);
+    }
+    
+    // 前置++
+    // ++p
+    Point& operator++() {
+        ++x;
+        ++y;
+        return *this;
+    }
+    
+    // 后置++
+    // p++
+    const Point operator++(int) {
+        Point old(x, y);
+        x++;
+        y++;
+        return old;
+    }
 };
 
-Point operator+(const Point &l, const Point &r) {
-    return Point(l.x + r.x, l.y + r.y);
-}
-
-Point operator-(const Point &l, const Point &r) {
-    return Point(l.x - r.x, l.y - r.y);
-}
-
-void operator+=(Point &l, const Point &r) {
-    l.x += r.x;
-    l.y += r.y;
-}
-
-void operator-=(Point &l, const Point &r) {
-    l.x -= r.x;
-    l.y -= r.y;
-}
-
-bool operator<(const Point &l, const Point &r) {
-    return l.x < r.x && l.y < r.y;
-}
-
-bool operator>(const Point &l, const Point &r) {
-    return l.x > r.x && l.y > r.y;
-}
-
-bool operator==(const Point &l, const Point &r) {
-    return l.x ==r.x && l.y == r.y;
-}
-
-bool operator<=(const Point &l, const Point &r) {
-    return l < r || l == r;
-}
-
-bool operator>=(const Point &l, const Point &r) {
-    return l > r || l == r;
-}
-
-Point operator-(const Point &point) {
-    return Point(-point.x, -point.y);
-}
 
 int main(int argc, const char * argv[]) {
     
@@ -78,6 +99,11 @@ int main(int argc, const char * argv[]) {
     Point p4 = -p3;
     p4.log();
     
+    p4++;
+    p4.log();
+    
+    (++p4) += p2;
+    p4.log();
     
     return 0;
 }
